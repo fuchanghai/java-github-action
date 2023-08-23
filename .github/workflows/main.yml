@@ -43,7 +43,12 @@ jobs:
       not-ignore: ${{ steps.filter.outputs.not-ignore }}
     steps:
       - uses: actions/checkout@v2
-
+      - uses: dorny/paths-filter@b2feaf19c27470162a626bd6fa8438ae5b263721
+        id: filter
+        with:
+          filters: |
+            not-ignore:
+              - '!(docs/**)'
   build:
     name: Backend-Build
     needs: paths-filter
@@ -82,7 +87,7 @@ jobs:
     name: Build
     runs-on: ubuntu-latest
     timeout-minutes: 30
-    needs: [ build ]
+    needs: [ build,paths-filter ]
     if: always()
     steps:
       - name: Status
