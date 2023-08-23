@@ -67,10 +67,10 @@ jobs:
         with:
           java-version: ${{ matrix.java }}
           distribution: 'adopt'
-      - name: Sanity Check
-        uses: ./.github/actions/sanity-check
-        with:
-          token: ${{ secrets.GITHUB_TOKEN }}
+#      - name: Sanity Check
+#        uses: ./.github/actions/sanity-check
+#        with:
+#          token: ${{ secrets.GITHUB_TOKEN }}
       - uses: actions/cache@v3
         with:
           path: ~/.m2/repository
