@@ -73,10 +73,7 @@ jobs:
       - name: Build and Package on ${{ matrix.java }}
         run: |
           ./mvnw -B clean install \
-#                 -Prelease,docker \
                  -Dspotless.skip=true \
-#      - name: Check dependency license
-#        run: tools/dependencies/check-LICENSE.sh
 
   result:
     name: Build
