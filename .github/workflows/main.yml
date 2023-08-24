@@ -69,7 +69,7 @@ jobs:
       - uses: actions/cache@v3
         with:
           path: ~/.m2/repository
-          key: ${{ runner.os }}-maven
+          key: Linux-maven
       - name: Build and Package on ${{ matrix.java }}
         run: |
           ./mvnw -B clean install \
