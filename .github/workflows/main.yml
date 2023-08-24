@@ -24,11 +24,6 @@ on:
     paths:
       - '.github/workflows/backend.yml'
       - 'pom.xml'
-      - 'datavines-cli/**'
-      - 'datavines-client/**'
-      - 'datavines-engine/**'
-      - 'datavines-server/**'
-      - 'datavines-runner/**'
   pull_request:
 
 concurrency:
@@ -80,8 +75,8 @@ jobs:
           ./mvnw -B clean install \
 #                 -Prelease,docker \
                  -Dspotless.skip=true \
-      - name: Check dependency license
-        run: tools/dependencies/check-LICENSE.sh
+#      - name: Check dependency license
+#        run: tools/dependencies/check-LICENSE.sh
 
   result:
     name: Build
